@@ -1,0 +1,29 @@
+containerApp:
+  # By default a new app with this name is created in the Qlik tenant and is replaced each
+  # time a build is made. Further options below can be uncommented to override this behaviour.
+  #
+  # Note that you have access to the build context and values YAML inside this file - here we 
+  # make the git refname part of the file name.
+  appName: Managed_GitFirst_TestApp_{{.git.refName}}
+  # replaceExisting: true
+  # deleteOnFinish: false
+  # Can also uncomment one of the following as a QVF app to copy.
+  # copyExistingApp:
+  #   appName: app_name_to_copy_in_tenant
+  # importAppInRepo:
+  #   path: you_app.qvf
+  # importFromHttp:
+  #   url: https://url-to-your-app/app.qvf
+  # # Coming soon - import from GitHub release asset.
+
+stages:
+  # checkScript:
+  #   run: true
+  reload:
+    run: true # true | false | onlyIfAppNew
+    #timeLimit: 15m
+  setMasterItems:
+    run: true
+  runTests:
+    run: true
+    #timeLimit: 15m

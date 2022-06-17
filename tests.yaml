@@ -1,0 +1,30 @@
+expressionChecks:
+  shouldBeTrue:
+    - count(DISTINCT $Table) = 1
+    - count(DISTINCT $Field) = 4
+    - "[Average Price] > 10"
+    - "[Max Price] > [Average Price]"
+    - "[Build SHA] = '{{.git.sha}}'"
+  displayOnly:
+    - count(DISTINCT $Table)
+    - count(DISTINCT $Field)
+    - "[Average Price]"
+    - "[Max Price]"
+    - "[Build SHA]"
+modelChecks:
+  allowSyntheticKeys: false
+  tablesShouldExist:
+    - Cameras
+  tablesShouldNotExist:
+    - MadeUpTable
+  fieldsShouldExist: [Customer, Product, UnitSales, UnitPrice]
+  fieldsShouldNotExist:
+    - MadeUpField1
+    - MadeUpField2
+  # For possible tags, see:
+  # https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Scripting/field-tags.htm
+  fieldsShouldHaveTags:
+    - fields: [Customer]
+      tags: [$text]
+    - fields: [UnitSales, UnitPrice]
+      tags: [$integer]

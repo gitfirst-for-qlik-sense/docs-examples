@@ -1,0 +1,15 @@
+# dimensions:
+#   - id: dim1
+#     label: Your Dimension
+#     expression: = ...your dimension...
+measures:
+  - id: avgPrice
+    label: Average Price
+    expression: avg(UnitPrice)
+  - id: maxPrice
+    label: Max Price
+    expression: max(UnitPrice)
+variables:
+  - id: buildSha
+    label: Build SHA
+    expression: '{{.git.sha}}'

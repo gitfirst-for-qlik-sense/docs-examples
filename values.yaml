@@ -1,0 +1,3 @@
+maxRows: 5
+storeQvds: true
+qvdFile: MyQVDs_{{.git.refName}}.qvd

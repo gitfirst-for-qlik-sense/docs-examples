@@ -1,0 +1,15 @@
+trace Build triggered by '{{ .buildTrigger }}';
+trace shaShort={{ .git.shaShort }}, sha={{ .git.sha }}, refName={{ .git.refName }}, refType={{ .git.refType }};
+
+Cameras:
+LOAD * inline [
+Customer Product UnitSales UnitPrice
+Imagine Film 4 16
+Imagine Film 10 15
+Imagine Shutter 9 9
+PhotoInc Shutter 5 10
+PhotoInc Lens 2 20
+PhotoInc Magnifier 4 25
+Gallery Film 8 15
+Gallery Lens 7 19
+] (delimiter is ' ');
